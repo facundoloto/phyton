@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="row">
+<div class="col-md-5">
+{% with messages = get_flashed_messages()  %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+{{ message }}
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="card card-body">
+<h4>Registrar usuario</h4>
+<form action="{{url_for('add_contact')}}" method="POST">
+<div class="form-group">
+<input type="text" class="form-control" name="nombre" placeholder="nombre" autocomplete="off"  maxlength="10" required>
+</div>
+<div class="form-group">
+<input type="text" class="form-control" name="apellido" placeholder="apellido" autocomplete="off" maxlength="15" required>
+</div>
+<div class="form-group">
+<input type="email" class="form-control" name="email" placeholder="email" autocomplete="off"  maxlength="20" required>
+</div>
+<div class="form-group">
+<input type="text" class="form-control" name="contraseña" placeholder="contraseña" autocomplete="off" minlength="8" maxlength="10"required>
+</div>
+<button class="btn btn-success btn-block" id="load">
+Guardar
+</button>
+</form>
+</div>
+
+</div>
+
+<div class="col-md-7">
+
+<table class="table table-striped table-hover table-bordered table-sm bg-white">
+
+<thead>
+<tr>
+<td>Nombre</td>
+<td>Apellido</td>
+<td>Email</td>
+<td>Contraseña</td>
+<td>Editar</td>
+<td>Eliminar</td>
+</tr>
+</thead>
+
+<tbody>
+{% for contact in contacts %}
+<tr>
+<td>{{contact.1}}</td>
+<td>{{contact.2}}</td>
+<td>{{contact.3}}</td>
+<td>{{contact.4}}</td>
+<td><a href="/edit/{{contact.0}}"><button class="btn btn-secondary" >editar</button></a></td>
+<td><a href="/delete/{{contact.0}}"><button class="btn btn-danger btn-delete">borrar</button></a></td>
+</tr>
+{% endfor %}
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

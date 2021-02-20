@@ -1,0 +1,42 @@
+
+body{
+background-color:#e2f1ed;
+}
+  footer{
+  color:#52616b;
+  }
+   
+  h4{
+    color:#52616b;
+  }
+  .footer{
+    position: absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    font-size:1.5em;
+    }
+
+    .logo{
+   
+    background-color: #bfb6d4;
+    }
+    .logo h1{
+      color:White;
+      text-align:center;
+      font-family: system-ui;
+      background: -webkit-linear-gradient(rgb(255, 255, 255),rgb(224, 224, 224));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 4rem;
+      line-height: 115%;
+      background-clip: text;
+    }
+    .logo img{
+    width:150px;
+    height:150px;
+    position: relative;
+    top:-20px;
+    margin-bottom:-40px;
+    }
+  
